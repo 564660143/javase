@@ -2,6 +2,11 @@ package thread.keyword;
 
 import java.util.Date;
 
+/**
+ * æ™®é€šçº¿ç¨‹
+ * @author Administrator
+ *
+ */
 class Consumer extends Thread{
   private int no;
   private int time;
@@ -13,20 +18,24 @@ class Consumer extends Thread{
 
 
   public void run(){
-    System.out.println(no + "ºÅ×ÀµÄ¿ÍÈË¿ªÊ¼Ïû·ÑÁË");
+    System.out.println(no + "å·æ¡Œçš„å®¢äººå¼€å§‹æ¶ˆè´¹äº†");
     try {
       Thread.sleep(time);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    System.out.println(no + "ºÅ×ÀµÄ¿ÍÈË½áÊøÏû·ÑºÄÊ±£º" + time);
+    System.out.println(no + "å·æ¡Œçš„å®¢äººç»“æŸæ¶ˆè´¹è€—æ—¶ï¼š" + time);
     
   }
   
   
 }
 
-
+/**
+ * å®ˆæŠ¤çº¿ç¨‹,çº¿ç¨‹è®¾ç½®ä¸ºæ¯ç§’æŠ¥æ•°
+ * @author Administrator
+ *
+ */
 class Waiter extends Thread{
   
   public void run(){
@@ -45,24 +54,21 @@ class Waiter extends Thread{
 
 
 /**
- * Daemon,½«Ò»¸öÏß³ÌÉèÖÃÎªÊØ»¤Ïß³Ì£¬µ±Ò»¸ö½ø³ÌÖĞËùÓĞ·ÇÊØ»¤Ïß³Ì¶¼½áÊøÊ±£¬Õâ¸ö½ø³ÌÒ²½«½áÊø
+ * Daemon,å°†ä¸€ä¸ªçº¿ç¨‹è®¾ç½®ä¸ºå®ˆæŠ¤çº¿ç¨‹ï¼Œå½“ä¸€ä¸ªè¿›ç¨‹ä¸­æ‰€æœ‰éå®ˆæŠ¤çº¿ç¨‹éƒ½ç»“æŸæ—¶ï¼Œè¿™ä¸ªè¿›ç¨‹ä¹Ÿå°†ç»“æŸ
  * @author Administrator
  *
  */
 public class DaemonDemo {
 
   public static void main(String[] args) {
-    Consumer c1 = new Consumer(1, 3000);
-    Consumer c2 = new Consumer(2, 6000);
-    Consumer c3 = new Consumer(3, 9000);
+    Consumer c1 = new Consumer(1, 1000);
+    Consumer c2 = new Consumer(2, 2000);
+    Consumer c3 = new Consumer(3, 3000);
     Waiter w1 = new Waiter();
     
-    // ´Ë´¦±íÊ¾½«w1Ïß³ÌÉèÖÃÎªÊØ»¤Ïß³Ì£¬w1Ïß³Ì½«ÔÚc1¡¢c2¡¢c3Èı¸öÏß³ÌÖ´ĞĞÍê³ÉÖ®ºó½áÊøÖ´ĞĞ£¬
-    // setDaemon±ØĞëÔÚÏß³ÌÆô¶¯Ö®Ç°ÉèÖÃ
+    // æ­¤å¤„è¡¨ç¤ºå°†w1çº¿ç¨‹è®¾ç½®ä¸ºå®ˆæŠ¤çº¿ç¨‹ï¼Œw1çº¿ç¨‹å°†åœ¨c1ã€c2ã€c3ä¸‰ä¸ªçº¿ç¨‹æ‰§è¡Œå®Œæˆä¹‹åç»“æŸæ‰§è¡Œï¼Œ
+    // setDaemonå¿…é¡»åœ¨çº¿ç¨‹å¯åŠ¨ä¹‹å‰è®¾ç½®
     w1.setDaemon(true);
-    synchronized (args) {
-      
-    }
     w1.start();
     c1.start();
     c2.start();

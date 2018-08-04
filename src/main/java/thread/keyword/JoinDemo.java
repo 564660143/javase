@@ -10,21 +10,21 @@ class MenPai extends Thread{
   
   
   public void run(){
-    System.out.println(name + "³ö·¢ÁË");
+    System.out.println(name + "å‡ºå‘äº†");
     try {
       Thread.sleep(time);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    System.out.println(name + "µ½ÁË£¬ºÄÊ±£º" + time);
+    System.out.println(name + "åˆ°äº†ï¼Œè€—æ—¶ï¼š" + time);
   }
   
 }
 
 
 /**
- * join¹Ø¼ü×Ö£¬ÔÚµ±Ç°Ïß³ÌÖ´ĞĞÆäËûÏß³ÌµÄjoin·½·¨Ê±£¬±íÊ¾½«ÆäËûÏß³Ì¼ÓÈëµ±Ç°Ïß³Ì
- * µ±Ç°Ïß³ÌĞèÒªµÈ´ıÆäËûÏß³ÌÖ´ĞĞÍê³É²ÅÄÜ¼ÌĞøÖ´ĞĞ
+ * joinå…³é”®å­—ï¼Œåœ¨å½“å‰çº¿ç¨‹æ‰§è¡Œå…¶ä»–çº¿ç¨‹çš„joinæ–¹æ³•æ—¶ï¼Œè¡¨ç¤ºå°†å…¶ä»–çº¿ç¨‹åŠ å…¥å½“å‰çº¿ç¨‹
+ * å½“å‰çº¿ç¨‹éœ€è¦ç­‰å¾…å…¶ä»–çº¿ç¨‹æ‰§è¡Œå®Œæˆæ‰èƒ½ç»§ç»­æ‰§è¡Œ
  * @author Administrator
  *
  */
@@ -33,12 +33,12 @@ public class JoinDemo {
   
 
   public static void main(String[] args) {
-    MenPai m1 = new MenPai("ÉÙÁÖ", 1000);
-    MenPai m2 = new MenPai("Îäµ±", 2000);
-    MenPai m3 = new MenPai("¶ëÃ¼", 3000);
-    MenPai m4 = new MenPai("À¥ÂØ", 4000);
-    MenPai m5 = new MenPai("áÇá¼", 5000);
-    MenPai m6 = new MenPai("»ªÉ½", 6000);
+    MenPai m1 = new MenPai("å°‘æ—", 1000);
+    MenPai m2 = new MenPai("æ­¦å½“", 2000);
+    MenPai m3 = new MenPai("å³¨çœ‰", 3000);
+    MenPai m4 = new MenPai("æ˜†ä»‘", 4000);
+    MenPai m5 = new MenPai("å´†å³’", 5000);
+    MenPai m6 = new MenPai("åå±±", 6000);
     m1.start();
     m2.start();
     m3.start();
@@ -46,7 +46,7 @@ public class JoinDemo {
     m5.start();
     m6.start();
     
-    // join(),¼ÓÈëµ±Ç°µÄmainÏß³Ì
+    // join(),åŠ å…¥å½“å‰çš„mainçº¿ç¨‹
     try {
       m1.join();
       m2.join();
@@ -58,8 +58,8 @@ public class JoinDemo {
       e.printStackTrace();
     }
     
-    // m1-m6Í¨¹ıjoin()·½·¨¼ÓÈëmainÏß³Ì£¬mainÏß³ÌĞèÒªµÈ´ıÕâÁù¸öÏß³ÌÖ´ĞĞÍê±Ï²ÅÄÜ¼ÌĞøÖ´ĞĞ
-    System.out.println("Áù´óÃÅÅÉÎ§¹¥¹âÃ÷¶¥");
+    // m1-m6é€šè¿‡join()æ–¹æ³•åŠ å…¥mainçº¿ç¨‹ï¼Œmainçº¿ç¨‹éœ€è¦ç­‰å¾…è¿™å…­ä¸ªçº¿ç¨‹æ‰§è¡Œå®Œæ¯•æ‰èƒ½ç»§ç»­æ‰§è¡Œ
+    System.out.println("å…­å¤§é—¨æ´¾å›´æ”»å…‰æ˜é¡¶");
     
     
   }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ¹«¹²×ÊÔ´Àà
+ * å…¬å…±èµ„æºç±»
  * 
  * @author Administrator
  *
@@ -14,11 +14,11 @@ class Resource {
   private List<Integer> list = new ArrayList<>();
 
   
-  /******************************Í¬²½·½·¨**************************************/
+  /******************************åŒæ­¥æ–¹æ³•**************************************/
   public synchronized void add(Integer in) {
       while (list.size() >= max) {
         try {
-          System.out.println("Éú²úÕßwait-> list size:" + list.size());
+          System.out.println("ç”Ÿäº§è€…wait-> list size:" + list.size());
           this.wait();
         } catch (InterruptedException e) {
           e.printStackTrace();
@@ -31,26 +31,26 @@ class Resource {
   public synchronized void remove() {
       while (list.size() == 0) {
         try {
-          System.out.println("Ïû·ÑÕßwait -> list size:" + list.size());
+          System.out.println("æ¶ˆè´¹è€…wait -> list size:" + list.size());
           this.wait();
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
       }
       int i = list.remove(0);
-      System.out.println("Ïû·ÑÁË£º" + i);
+      System.out.println("æ¶ˆè´¹äº†ï¼š" + i);
       this.notifyAll();
    }
-  /******************************Í¬²½·½·¨**************************************/
+  /******************************åŒæ­¥æ–¹æ³•**************************************/
 
   
   
-  /******************************Í¬²½´úÂë¿é**************************************/
+  /******************************åŒæ­¥ä»£ç å—**************************************/
 //  public  void add(Integer in) {
 //    synchronized(this){
 //      while (list.size() >= max) {
 //        try {
-//          System.out.println("Éú²úÕßwait-> list size:" + list.size());
+//          System.out.println("ç”Ÿäº§è€…wait-> list size:" + list.size());
 //          this.wait();
 //        } catch (InterruptedException e) {
 //          e.printStackTrace();
@@ -65,19 +65,19 @@ class Resource {
 //    synchronized(this){
 //      while (list.size() == 0) {
 //        try {
-//          System.out.println("Ïû·ÑÕßwait -> list size:" + list.size());
+//          System.out.println("æ¶ˆè´¹è€…wait -> list size:" + list.size());
 //          this.wait();
 //        } catch (InterruptedException e) {
 //          e.printStackTrace();
 //        }
 //      }
 //      int i = list.remove(0);
-//      System.out.println("Ïû·ÑÁË£º" + i);
+//      System.out.println("æ¶ˆè´¹äº†ï¼š" + i);
 //      this.notifyAll();
 //    }
 //  }
 
-  /******************************Í¬²½´úÂë¿é**************************************/
+  /******************************åŒæ­¥ä»£ç å—**************************************/
 
   
   
